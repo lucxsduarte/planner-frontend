@@ -1,0 +1,46 @@
+<button mat-flat-button color="primary" (click)="getAllTrips()">Buscar viagens</button>
+
+<div class="gridContainer">
+<table mat-table [dataSource]="trips" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="destination">
+    <th mat-header-cell *matHeaderCellDef>Destino</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.destination }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="startsAt">
+    <th mat-header-cell *matHeaderCellDef>Início</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.startsAt | date:'short' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="endsAt">
+    <th mat-header-cell *matHeaderCellDef>Fim</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.endsAt | date:'short' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="isConfirmed">
+    <th mat-header-cell *matHeaderCellDef>Confirmada</th>
+    <td mat-cell *matCellDef="let trip">
+      <mat-icon *ngIf="trip.isConfirmed" color="primary">check_circle</mat-icon>
+      <mat-icon *ngIf="!trip.isConfirmed" color="warn">cancel</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ownerName">
+    <th mat-header-cell *matHeaderCellDef>Dono</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.ownerName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ownerEmail">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let trip">{{ trip.ownerEmail }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

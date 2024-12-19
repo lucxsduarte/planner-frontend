@@ -1,0 +1,26 @@
+.title {
+  text-align: center;
+  width: 100%;
+}
+
+.sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+.sidenav-content {
+  height: 100%;
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.sidenav-content-opened {
+  transform: translateX(50px);
+  width: 80%;
+}
+
+.sidenav {
+  transition: width 0.3s ease;
+}
+
